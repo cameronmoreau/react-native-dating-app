@@ -1,0 +1,18 @@
+{
+  "1337": {
+    "name": "Ryan",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Ryan_Gosling_2_Cannes_2011_%28cropped%29.jpg/220px-Ryan_Gosling_2_Cannes_2011_%28cropped%29.jpg"
+  },
+  "1": {
+    "name": "Sarah",
+    "avatar": "https://randomuser.me/api/portraits/women/67.jpg"
+  },
+  "2": {
+    "name": "Megan",
+    "avatar": "https://s-media-cache-ak0.pinimg.com/736x/6e/96/84/6e96849b0e7bcd796bce8d7d5bc618a9--daenerys-game-of-thrones-game-of-throne-daenerys.jpg"
+  },
+  "3": {
+    "name": "Shelby",
+    "avatar": "https://randomuser.me/api/portraits/women/21.jpg"
+  }
+}

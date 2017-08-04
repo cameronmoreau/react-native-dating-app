@@ -1,0 +1,53 @@
+[
+  {
+    "user": 1,
+    "messages": [
+      {
+        "text": "Hola!",
+        "user": 1337
+      },
+      {
+        "text": "Hi!",
+        "user": 1
+      },
+      {
+        "text": "hello!",
+        "user": 1337
+      }
+    ]
+  },
+  {
+    "user": 2,
+    "messages": [
+      {
+        "text": "most recent message!",
+        "user": 1337
+      },
+      {
+        "text": "hi again!",
+        "user": 2
+      },
+      {
+        "text": "Hello!",
+        "user": 2
+      }
+    ]
+  },
+  {
+    "user": 3,
+    "messages": [
+      {
+        "text": "most message!",
+        "user": 1337
+      },
+      {
+        "text": "hi again!",
+        "user": 2
+      },
+      {
+        "text": "Hello!",
+        "user": 2
+      }
+    ]
+  }
+]
