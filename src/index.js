@@ -2,8 +2,27 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
-import Explore from './scenes/Explore';
+import Explore from './screens/Explore';
+import Chat from './screens/Chat';
+import Profile from './screens/Profile';
 
+const HomeTabs = TabNavigator({
+  Explore: {
+    screen: Explore,
+  },
+  Chat: {
+    screen: Chat,
+  },
+  Profile: {
+    screen: Profile,
+  }
+});
+
+const HomeNavigator = StackNavigator(
+  {
+    HomeTabs: { screen: HomeTabs }
+  }
+)
 
 /**
  * Base level navigator
@@ -12,7 +31,7 @@ import Explore from './scenes/Explore';
  */
 const AppNavigator = StackNavigator(
   {
-    HomeNavigator: { screen: Explore }
+    HomeNavigator: { screen: HomeNavigator }
   },
   {
     headerMode: 'none',
