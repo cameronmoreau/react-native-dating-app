@@ -1,17 +1,19 @@
-import React from 'react';
 import { Platform } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
 
 import Explore from './screens/Explore';
-import Chat from './screens/Chat';
+import AllMessages from './screens/AllMessages';
 import Profile from './screens/Profile';
+
+import UserProfile from './screens/UserProfile';
+import Chat from './screens/Chat';
 
 const HomeTabs = TabNavigator({
   Explore: {
     screen: Explore,
   },
-  Chat: {
-    screen: Chat,
+  Messages: {
+    screen: AllMessages,
   },
   Profile: {
     screen: Profile,
@@ -20,7 +22,8 @@ const HomeTabs = TabNavigator({
 
 const HomeNavigator = StackNavigator(
   {
-    HomeTabs: { screen: HomeTabs }
+    HomeTabs: { screen: HomeTabs },
+    Chat: { screen: Chat },
   }
 )
 
@@ -31,7 +34,8 @@ const HomeNavigator = StackNavigator(
  */
 const AppNavigator = StackNavigator(
   {
-    HomeNavigator: { screen: HomeNavigator }
+    HomeNavigator: { screen: HomeNavigator },
+    UserProfile: { screen: UserProfile }
   },
   {
     headerMode: 'none',

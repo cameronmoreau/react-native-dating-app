@@ -1,18 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 
-class Chat extends Component {
-  static navigationOptions = {
-    title: 'Sarah'
-  }
-
+class UserProfile extends Component {
   render() {
     return (
       <View>
-        <Text>Chat</Text>
+        <Text>UserProfile</Text>
       </View>
     );
   }
 }
 
-export default Chat;
+export default UserProfile;

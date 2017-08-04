@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
-class Explore extends Component {
+class AllMessages extends Component {
   render() {
     return (
       <View>
-        <Text>Explore</Text>
-
+        <Text>AllMessages</Text>
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('UserProfile')}
+          onPress={() => this.props.navigation.navigate('Chat')}
         >
-          <Text>Match</Text>
+          <Text>Open Chat</Text>
         </TouchableOpacity>
       </View>
     );
   }
 }
 
-export default Explore;
+export default AllMessages;
