@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { View } from 'react-native';
 import { GiftedChat } from 'react-native-gifted-chat';
 
 // Fake data
@@ -57,13 +58,15 @@ class Chat extends Component {
   render() {
     const { messages } = this.state;
     return (
-      <GiftedChat
-        messages={messages}
-        onSend={this._sendMessage}
-        user={{
-          _id: 1337
-        }}
-      />
+      <View style={{ flex: 1, backgroundColor: '#F8F8F9' }}>
+        <GiftedChat
+          messages={messages}
+          onSend={this._sendMessage}
+          user={{
+            _id: 1337
+          }}
+        />
+      </View>
     );
   }
 }
