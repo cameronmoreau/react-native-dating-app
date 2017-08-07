@@ -1,5 +1,7 @@
 {
   "expo": {
-    "sdkVersion": "19.0.0"
+    "sdkVersion": "19.0.0",
+    "name": "Matched",
+    "slug": "matched"
   }
 }
