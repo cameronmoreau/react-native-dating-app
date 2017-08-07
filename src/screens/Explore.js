@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, StyleSheet } from 'react-native';
-import { UserCard, MatchButton } from '../components';
+import { View, StyleSheet, Text } from 'react-native';
+import { UserCard, MatchButton, NoMoreMatches } from '../components';
 import { Colors } from '../constants';
 
 import * as Animatable from 'react-native-animatable';
@@ -8,16 +8,64 @@ import * as Animatable from 'react-native-animatable';
 import Users from '../../fakedata/users.json';
 
 class Explore extends Component {
+  state = {
+    userIndex: 0,
+    users: []
+  };
+
+  componentWillMount() {
+    /**
+     * Save users so we're not calculating every render
+     * We also want to filter out the current user
+     * 
+     * Btw, not double equal because it could be string or int
+     */
+
+    this.setState({
+      users: Object.keys(Users)
+        .filter(i => i != 1337)
+        .map(i => Object.assign({ id: i }, Users[i]))
+    });
+  }
+  
+
+  _userLike = () => {
+    // TODO: User like stuff
+    this._nextUser();
+  }
+
+  _userDislike = () => {
+    // TODO: User dislike stuff
+    this._nextUser();
+  }
+
+  _userPressed = (userId) => {
+    this.props.navigation.navigate('UserProfile', { userId });
+  }
+
+  _nextUser = () => this.setState({
+    userIndex: this.state.userIndex + 1
+  });
+
   render() {
-    const user = Users[2];
+    const { userIndex, users } = this.state;
+    const user = users[userIndex];
+
+    // Check if end of users
+    if (userIndex >= users.length) {
+      return (<NoMoreMatches />);
+    }
+
+    // Display users
     return (
       <View style={styles.container}>
         <UserCard
-          onPress={() => this.props.navigation.navigate('UserProfile')}
+          onPress={() => this._userPressed(user.id)}
           imageUrl={user.avatar}
         />
         <View style={styles.buttons}>
           <MatchButton
+            onPress={this._userDislike}
             icon="md-close"
             iconColor="#5B93FA"
           />
@@ -29,6 +77,7 @@ class Explore extends Component {
           >{user.name}
           </Animatable.Text>
           <MatchButton
+            onPress={this._userLike}
             icon="ios-heart"
             iconColor={Colors.primaryColor}
           />

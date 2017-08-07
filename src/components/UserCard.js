@@ -1,26 +1,32 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
 
 import * as Animatable from 'react-native-animatable';
 
-const UserCard = ({ imageUrl }) => {
+const UserCard = ({ imageUrl, onPress }) => {
   return (
-    <Animatable.View
-      style={styles.container}
-      animation="zoomInDown"
-      duration={500}
-      easing="ease-in-sine"
+    <TouchableOpacity
+      onPress={onPress}
+      style={{ flex: 1 }}
     >
-      <Image
-        style={styles.image}
-        source={{ uri: imageUrl }}
-      />
-      <LinearGradient
-        colors={['transparent', 'rgba(0,0,0,0.8)']}
-        style={styles.gradient}
-      />
-    </Animatable.View>
+      <Animatable.View
+        onPress={onPress}
+        style={styles.container}
+        animation="zoomInDown"
+        duration={500}
+        easing="ease-in-sine"
+      >
+        <Image
+          style={styles.image}
+          source={{ uri: imageUrl }}
+        />
+        <LinearGradient
+          colors={['transparent', 'rgba(0,0,0,0.8)']}
+          style={styles.gradient}
+        />
+      </Animatable.View>
+    </TouchableOpacity>
   );
 };
 
