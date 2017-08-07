@@ -1,37 +1,33 @@
 [
   {
     "id": 1,
-    "user": 1,
+    "user": 2,
     "messages": [
       {
-        "text": "Hola!",
+        "text": "🙃",
         "user": 1337
       },
       {
-        "text": "Hi!",
-        "user": 1
+        "text": "No",
+        "user": 2
       },
       {
-        "text": "hello!",
+        "text": "Hey, when you hve a headache, do you take an Advil or Allie-ve?",
         "user": 1337
       }
     ]
   },
   {
     "id": 2,
-    "user": 2,
+    "user": 1,
     "messages": [
       {
-        "text": "most recent message!",
+        "text": "Hey cutie, visit http://virus.com/exe to chat",
+        "user": 1
+      },
+      {
+        "text": "Hi",
         "user": 1337
-      },
-      {
-        "text": "hi again!",
-        "user": 2
-      },
-      {
-        "text": "Hello!",
-        "user": 2
       }
     ]
   },
@@ -40,16 +36,12 @@
     "user": 3,
     "messages": [
       {
-        "text": "most message!",
+        "text": "Shelby has unmatched with you",
+        "user": 3
+      },
+      {
+        "text": "yo yo yo!",
         "user": 1337
-      },
-      {
-        "text": "hi again!",
-        "user": 2
-      },
-      {
-        "text": "Hello!",
-        "user": 2
       }
     ]
   }
