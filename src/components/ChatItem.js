@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet
 } from 'react-native';
+import { Colors } from '../constants';
 
 const ChatItem = ({ user, text, date, onPress }) => {
   const { name, avatar } = user;
@@ -54,13 +55,14 @@ const styles = StyleSheet.create({
   },
   nameText: {
     fontWeight: '800',
-    fontSize: 18
+    fontSize: 18,
+    color: Colors.textColor
   },
   messageText: {
-
+    color: Colors.textColor
   },
   dateText: {
-
+    color: '#929292'
   }
 });
 

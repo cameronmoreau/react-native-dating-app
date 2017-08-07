@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { UserCard, MatchButton } from '../components';
+import { Colors } from '../constants';
 
 import Users from '../../fakedata/users.json';
 
@@ -21,7 +22,7 @@ class Explore extends Component {
           <Text style={styles.name}>{user.name}</Text>
           <MatchButton
             icon="ios-heart"
-            iconColor="#FA795C"
+            iconColor={Colors.primaryColor}
           />
         </View>
       </View>
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 8,
     position: 'relative',
-    backgroundColor: 'white'
+    backgroundColor: '#F8F8F9'
   },
   buttons: {
     marginTop: 8,

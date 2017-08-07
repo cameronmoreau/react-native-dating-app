@@ -25,7 +25,10 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     borderRadius: 8,
-    position: 'relative'
+    position: 'relative',
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    shadowOffset: { width: 0.5, height: 0.5 }
   },
   image: {
     flex: 1,

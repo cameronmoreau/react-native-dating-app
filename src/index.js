@@ -1,5 +1,8 @@
+import React from 'react';
 import { Platform } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Ionicons as Icon } from '@expo/vector-icons';
+import { Colors } from './constants';
 
 import Explore from './screens/Explore';
 import AllMessages from './screens/AllMessages';
@@ -11,15 +14,54 @@ import Chat from './screens/Chat';
 const HomeTabs = TabNavigator({
   Explore: {
     screen: Explore,
-    navigationOptions: { title: 'Explore' }
+    navigationOptions: {
+      title: 'Explore',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon
+          name="ios-beer"
+          color={tintColor}
+          size={24}
+        />
+      )
+    }
   },
   Messages: {
     screen: AllMessages,
-    navigationOptions: { title: 'Messages' }
+    navigationOptions: {
+      title: 'Messages',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon
+          name="ios-chatboxes"
+          color={tintColor}
+          size={28}
+          style={{ marginTop: 4 }}
+        />
+      )
+    }
   },
   Profile: {
     screen: Profile,
-    navigationOptions: { title: 'Profile' }
+    navigationOptions: {
+      title: 'Profile',
+      tabBarIcon: ({ tintColor }) => (
+        <Icon
+          name="ios-person"
+          color={tintColor}
+          size={32}
+          style={{ marginTop: 2 }}
+        />
+      )
+    }
+  }
+}, {
+  tabBarOptions: {
+    activeTintColor: '#F87961',
+    style: {
+      backgroundColor: 'white',
+      borderTopWidth: 0,
+      shadowOpacity: 0.05,
+      shadowRadius: 4
+    }
   }
 });
 
@@ -30,11 +72,13 @@ const HomeNavigator = StackNavigator(
   },
   {
     navigationOptions: {
+      headerTintColor: Colors.primaryColor,
       headerStyle: {
         backgroundColor: '#FFF'
       },
       headerTitleStyle: {
-        fontWeight: '600'
+        fontWeight: '800',
+        color: Colors.textColor
       }
     }
   }
