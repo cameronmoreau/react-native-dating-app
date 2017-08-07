@@ -11,12 +11,15 @@ import Chat from './screens/Chat';
 const HomeTabs = TabNavigator({
   Explore: {
     screen: Explore,
+    navigationOptions: { title: 'Explore' }
   },
   Messages: {
     screen: AllMessages,
+    navigationOptions: { title: 'Messages' }
   },
   Profile: {
     screen: Profile,
+    navigationOptions: { title: 'Profile' }
   }
 });
 
@@ -24,6 +27,16 @@ const HomeNavigator = StackNavigator(
   {
     HomeTabs: { screen: HomeTabs },
     Chat: { screen: Chat },
+  },
+  {
+    navigationOptions: {
+      headerStyle: {
+        backgroundColor: '#FFF'
+      },
+      headerTitleStyle: {
+        fontWeight: '600'
+      }
+    }
   }
 )
 
