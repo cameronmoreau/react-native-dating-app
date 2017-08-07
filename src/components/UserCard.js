@@ -1,14 +1,17 @@
 import React from 'react';
-import {
-  View,
-  Image,
-  StyleSheet
-} from 'react-native';
+import { Image, StyleSheet } from 'react-native';
 import { LinearGradient } from 'expo';
+
+import * as Animatable from 'react-native-animatable';
 
 const UserCard = ({ imageUrl }) => {
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      style={styles.container}
+      animation="zoomInDown"
+      duration={500}
+      easing="ease-in-sine"
+    >
       <Image
         style={styles.image}
         source={{ uri: imageUrl }}
@@ -17,7 +20,7 @@ const UserCard = ({ imageUrl }) => {
         colors={['transparent', 'rgba(0,0,0,0.8)']}
         style={styles.gradient}
       />
-    </View>
+    </Animatable.View>
   );
 };
 

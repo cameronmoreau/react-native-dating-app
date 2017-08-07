@@ -2,16 +2,23 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
+import * as Animatable from 'react-native-animatable';
+
 const MatchButton = ({ icon, iconColor }) => {
   return (
-    <View style={styles.container}>
+    <Animatable.View
+      animation="bounceIn"
+      duration={500}
+      delay={750}
+      style={styles.container}
+    >
       <Ionicons
         name={icon}
         size={38}
         color={iconColor}
         style={{ marginTop: 4 }}
       />
-    </View>
+    </Animatable.View>
   );
 };
 

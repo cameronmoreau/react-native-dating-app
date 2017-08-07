@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import { UserCard, MatchButton } from '../components';
 import { Colors } from '../constants';
+
+import * as Animatable from 'react-native-animatable';
 
 import Users from '../../fakedata/users.json';
 
@@ -19,7 +21,13 @@ class Explore extends Component {
             icon="md-close"
             iconColor="#5B93FA"
           />
-          <Text style={styles.name}>{user.name}</Text>
+          <Animatable.Text
+            animation="bounceIn"
+            delay={750}
+            duration={500}
+            style={styles.name}
+          >{user.name}
+          </Animatable.Text>
           <MatchButton
             icon="ios-heart"
             iconColor={Colors.primaryColor}
