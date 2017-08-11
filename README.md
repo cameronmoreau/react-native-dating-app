@@ -2,6 +2,11 @@
 
 This project was created as an example app to using React Native with Expo. The app also used React-Navigation.
 
+### Demo
+[Demo on Expo Client](https://expo.io/@cameronmoreau/matched)
+
+or type `exp://exp.host/@cameronmoreau/matched`
+
 ### Screenshots
 ![Explore](./screenshots/explore.png "Explore")
 ![Messages](./screenshots/messages.png "Messages")
