@@ -24,6 +24,7 @@
     "react-native": "^0.46.1",
     "react-native-animatable": "^1.2.3",
     "react-native-gifted-chat": "^0.2.5",
+    "react-native-swiper": "^1.5.13",
     "react-navigation": "^1.0.0-beta.11"
   }
 }
