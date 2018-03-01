@@ -1,18 +1,39 @@
 {
   "1337": {
     "name": "Ryan",
+    "lastName": "Kennedy",
+    "age": "21",
+    "city": "Concord,CA",
+    "description": "Swag everywhere",
     "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Ryan_Gosling_2_Cannes_2011_%28cropped%29.jpg/220px-Ryan_Gosling_2_Cannes_2011_%28cropped%29.jpg"
   },
   "1": {
     "name": "Sarah",
-    "avatar": "https://s8.favim.com/orig/150106/awww-christmas-clothing-cute-Favim.com-2363479.jpg"
+    "lastName": "Kennedy",
+    "age": "21",
+    "city": "Concord,CA",
+    "description": "I am shy and I love dogs",
+    "avatar": "https://s8.favim.com/orig/150106/awww-christmas-clothing-cute-Favim.com-2363479.jpg",
+    "avatar2": "https://s8.favim.com/orig/150106/awww-christmas-clothing-cute-Favim.com-2363479.jpg",
+    "avatar3": "https://s8.favim.com/orig/150106/awww-christmas-clothing-cute-Favim.com-2363479.jpg"
+               
+                
+
   },
   "2": {
     "name": "Allie",
+    "lastName": "Trum",
+    "age": "31",
+    "city": "Pleasant,CA",
+    "description": "I am not shy and I love cats",
     "avatar": "http://static.srcdn.com/wp-content/uploads/Game-of-Thrones-Daenerys-Targaryen-Emilia-Clarke.jpg"
   },
   "3": {
     "name": "Shelby",
+    "lastName": "Jacobs",
+    "age": "24",
+    "city": "Concord,CA",
+    "description": "I party and I love dogs",
     "avatar": "https://s-media-cache-ak0.pinimg.com/736x/e2/8d/68/e28d686dc0fd1d9da33ecea00a3229e7--girl-photography-photography-ideas.jpg"
   }
 }
