@@ -1,5 +1,3 @@
-import Colors from './colors';
+import Colors from "./colors";
 
-export {
-  Colors
-};
+export { Colors };
