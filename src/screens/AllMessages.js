@@ -1,19 +1,16 @@
-import React, { Component } from 'react';
-import { View, FlatList } from 'react-native';
+import React, { Component } from "react";
+import { View, FlatList } from "react-native";
 
-import { ChatItem } from '../components';
+import { ChatItem } from "../components";
 
 // Fake data
-import Messages from '../../fakedata/messages.json';
-import Users from '../../fakedata/users.json';
+import Messages from "../../fakedata/messages.json";
+import Users from "../../fakedata/users.json";
 
 class AllMessages extends Component {
   _chatItemPressed = (chatId) => {
-    this.props.navigation.navigate(
-      'Chat',
-      { id: chatId }
-    );
-  }
+    this.props.navigation.navigate("Chat", { id: chatId });
+  };
 
   _renderChatItem = ({ item }) => {
     const id = item.id;
@@ -28,14 +25,14 @@ class AllMessages extends Component {
         onPress={() => this._chatItemPressed(id)}
       />
     );
-  }
+  };
 
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: 'white' }}>
+      <View style={{ flex: 1, backgroundColor: "white" }}>
         <FlatList
-          data={Messages.map(item =>
-            Object.assign({ key: item.id }, item)
+          data={Messages.map((item) =>
+            Object.assign({ key: item.id.toString() }, item)
           )}
           renderItem={this._renderChatItem}
         />

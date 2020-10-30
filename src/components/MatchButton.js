@@ -1,14 +1,12 @@
-import React from 'react';
-import { TouchableOpacity, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { TouchableOpacity, StyleSheet } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-import * as Animatable from 'react-native-animatable';
+import * as Animatable from "react-native-animatable";
 
 const MatchButton = ({ icon, iconColor, onPress }) => {
   return (
-    <TouchableOpacity
-      onPress={onPress}
-    >
+    <TouchableOpacity onPress={onPress}>
       <Animatable.View
         animation="bounceIn"
         duration={500}
@@ -31,14 +29,14 @@ const styles = StyleSheet.create({
   container: {
     width: SIZE,
     height: SIZE,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: SIZE / 2,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     shadowOpacity: 0.2,
     shadowRadius: 4,
-    shadowOffset: { width: 0.5, height: 0.5 }
-  }
+    shadowOffset: { width: 0.5, height: 0.5 },
+  },
 });
 
 export default MatchButton;
