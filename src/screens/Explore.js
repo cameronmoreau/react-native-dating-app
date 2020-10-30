@@ -1,32 +1,32 @@
 import React, { Component } from "react";
-import { View, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Alert, ActivityIndicator } from "react-native";
 import { UserCard, MatchButton, NoMoreMatches } from "../components";
 import { Colors } from "../constants";
 
 import * as Animatable from "react-native-animatable";
 
-import Users from "../../fakedata/users.json";
-
 class Explore extends Component {
   state = {
+    loading: false,
     userIndex: 0,
     users: [],
   };
 
   componentDidMount() {
-    /**
-     * Save users so we're not calculating every render
-     * We also want to filter out the current user
-     *
-     * Btw, not double equal because it could be string or int
-     */
-
-    this.setState({
-      users: Object.keys(Users)
-        .filter((i) => i != 1337)
-        .map((i) => Object.assign({ id: i }, Users[i])),
-    });
+    this._fetchUsers();
   }
+
+  _fetchUsers = async () => {
+    try {
+      this.setState({ loading: true });
+      const response = await fetch("https://api.randomuser.me/?results=5");
+      const { results } = await response.json();
+      this.setState({ loading: false, users: results, userIndex: 0 });
+    } catch (e) {
+      this.setState({ loading: false });
+      Alert.alert("Failed to load", "There was an issue loading users");
+    }
+  };
 
   _userLike = () => {
     // TODO: User like stuff
@@ -38,8 +38,10 @@ class Explore extends Component {
     this._nextUser();
   };
 
-  _userPressed = (userId) => {
-    this.props.navigation.navigate("UserProfile", { userId });
+  _userPressed = (user) => {
+    this.props.navigation.navigate("UserProfile", {
+      imageUrl: user.picture.large,
+    });
   };
 
   _nextUser = () =>
@@ -48,20 +50,28 @@ class Explore extends Component {
     });
 
   render() {
-    const { userIndex, users } = this.state;
+    const { userIndex, users, loading } = this.state;
     const user = users[userIndex];
+
+    if (loading) {
+      return (
+        <View style={styles.loading}>
+          <ActivityIndicator size="large" />
+        </View>
+      );
+    }
 
     // Check if end of users
     if (userIndex >= users.length) {
-      return <NoMoreMatches />;
+      return <NoMoreMatches onReloadPress={this._fetchUsers} />;
     }
 
     // Display users
     return (
       <View style={styles.container}>
         <UserCard
-          onPress={() => this._userPressed(user.id)}
-          imageUrl={user.avatar}
+          onPress={() => this._userPressed(user)}
+          imageUrl={user.picture.large}
         />
         <View style={styles.buttons}>
           <MatchButton
@@ -75,7 +85,7 @@ class Explore extends Component {
             duration={500}
             style={styles.name}
           >
-            {user.name}
+            {user.name.first}
           </Animatable.Text>
           <MatchButton
             onPress={this._userLike}
@@ -94,6 +104,11 @@ const styles = StyleSheet.create({
     padding: 8,
     position: "relative",
     backgroundColor: "#F8F8F9",
+  },
+  loading: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttons: {
     marginTop: 8,

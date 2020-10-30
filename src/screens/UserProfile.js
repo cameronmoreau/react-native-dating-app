@@ -7,12 +7,11 @@ import Users from "../../fakedata/users.json";
 class UserProfile extends Component {
   render() {
     const { navigation, route } = this.props;
-    const { userId } = route.params;
-    const user = Users[userId];
+    const { imageUrl } = route.params;
 
     return (
       <View style={{ flex: 1 }}>
-        <Image source={{ uri: user.avatar }} style={{ flex: 1 }} />
+        <Image source={{ uri: imageUrl }} style={{ flex: 1 }} />
         <CloseButton
           onPress={() => navigation.goBack()}
           style={{
