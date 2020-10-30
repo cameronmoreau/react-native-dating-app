@@ -2,6 +2,8 @@
 
 This project was created as an example app to using React Native with Managed Expo. The app also used React-Navigation.
 
+Managed Expo v0.39
+
 ### Demo
 
 [Demo on Expo Client](https://expo.io/@cameronmoreau/matched)
@@ -10,9 +12,9 @@ or type `exp://exp.host/@cameronmoreau/matched`
 
 ### Screenshots
 
-![Explore](./screenshots/explore.png "Explore")
-![Messages](./screenshots/messages.png "Messages")
-![Chat](./screenshots/chat.png "Chat")
+<img src="screenshots/explore.png" width="250" alt="Explore" />
+<img src="screenshots/messages.png" width="250" alt="Messages" />
+<img src="screenshots/chat.png" width="250" alt="Chat" />
 
 ## Libraries
 
