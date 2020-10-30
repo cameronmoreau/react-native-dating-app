@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Button } from "./";
+import Button from "./Button";
 
 const NoMoreMatches = ({ onReloadPress }) => {
   return (
