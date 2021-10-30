@@ -1,13 +1,10 @@
-import React, { useLayoutEffect } from "react";
-import {
-  NavigationContainer,
-  getFocusedRouteNameFromRoute,
-} from "@react-navigation/native";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { createStackNavigator } from "@react-navigation/stack";
 import { Ionicons } from "@expo/vector-icons";
 
-import { Colors } from "./src/constants";
+import { Colors, Styles } from "./src/constants";
 
 import Explore from "./src/screens/Explore";
 import AllMessages from "./src/screens/AllMessages";
@@ -28,29 +25,15 @@ function getTabIcon(routeName) {
 }
 
 const Tab = createBottomTabNavigator();
-function HomeTabScreen({ navigation, route }) {
-  /** Required to set title of parent header
-   * https://reactnavigation.org/docs/screen-options-resolution#setting-parent-screen-options-based-on-child-navigators-state
-   */
-  useLayoutEffect(() => {
-    navigation.setOptions({ headerTitle: getFocusedRouteNameFromRoute(route) });
-  }, [navigation, route]);
-
+function HomeTabScreen() {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        activeTintColor: "#F87961",
-        style: {
-          backgroundColor: "white",
-          borderTopWidth: 0,
-          shadowOpacity: 0.05,
-          shadowRadius: 4,
-        },
-      }}
-      screenOptions={({ route }) => ({
+      screenOptions={(options) => ({
+        ...Styles.Header,
+        ...Styles.Tabs,
         tabBarIcon: ({ color }) => (
           <Ionicons
-            name={getTabIcon(route.name)}
+            name={getTabIcon(options.route.name)}
             size={32}
             color={color}
             style={{ marginTop: 2 }}
@@ -58,49 +41,43 @@ function HomeTabScreen({ navigation, route }) {
         ),
       })}
     >
-      <Tab.Screen name="Explore" component={Explore} />
+      <Tab.Screen name="Explore" component={Explore} options={{}} />
       <Tab.Screen name="Messages" component={AllMessages} />
       <Tab.Screen name="Profile" component={Profile} />
     </Tab.Navigator>
   );
 }
 
-const MainStack = createStackNavigator();
+const MainStack = createNativeStackNavigator();
 function MainStackScreen() {
   return (
     <MainStack.Navigator
       screenOptions={{
-        headerTintColor: Colors.primaryColor,
-        headerStyle: {
-          backgroundColor: "#FFF",
-        },
-        headerTitleStyle: {
-          fontWeight: "800",
-          color: Colors.textColor,
-        },
+        ...Styles.Header,
+        headerShown: false,
       }}
     >
       <MainStack.Screen name="Home" component={HomeTabScreen} />
-      <MainStack.Screen name="Chat" component={Chat} />
+      <MainStack.Screen
+        name="Chat"
+        component={Chat}
+        options={{ headerShown: true }}
+      />
     </MainStack.Navigator>
   );
 }
 
-const AppStack = createStackNavigator();
+const AppStack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <AppStack.Navigator mode="modal">
-        <AppStack.Screen
-          name="Main"
-          component={MainStackScreen}
-          options={{ headerShown: false }}
-        />
-        <AppStack.Screen
-          name="UserProfile"
-          component={UserProfile}
-          options={{ headerShown: false }}
-        />
+      <AppStack.Navigator screenOptions={{ headerShown: false }}>
+        <AppStack.Group>
+          <AppStack.Screen name="Main" component={MainStackScreen} />
+        </AppStack.Group>
+        <AppStack.Group screenOptions={{ presentation: "modal" }}>
+          <AppStack.Screen name="UserProfile" component={UserProfile} />
+        </AppStack.Group>
       </AppStack.Navigator>
     </NavigationContainer>
   );
