@@ -21,7 +21,7 @@ function getTabIcon(routeName) {
     case "Explore":
       return "ios-beer";
     case "Messages":
-      return "ios-chatboxes";
+      return "ios-chatbubbles";
     case "Profile":
       return "ios-person";
   }
